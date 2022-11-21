@@ -2,7 +2,7 @@
 
 A [Craftadoc](https://craftadoc.com) template. (Using LaTeX.)
 
-Stylish CV with profile picture, support for multiple 
+Stylish CV with profile picture and supports multiple pages.
 
 ### How do I use this?
 
