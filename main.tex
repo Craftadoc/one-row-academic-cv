@@ -11,9 +11,9 @@
 
 %<{type: "group", description: "Personal information"}
 \newcommand{\yourfirstname}
-{JACK} %<{type: "text", description: "First name", id: "firstName"}>
+{JACK} %<{type: "text", description: "First name", id: "firstName", inputValue: "JACK"}>
 \newcommand{\yourlastname}
-{SPARROW} %<{type: "text", description: "Last name", id: "lastName"}>
+{SPARROW} %<{type: "text", description: "Last name", id: "lastName", inputValue: "SPARROW"}>
 \setNameToFancyFooter{\yourfirstname{ }\yourlastname}
 
 
@@ -29,21 +29,21 @@
     % The PHOTO and INFO BOX
     % -----------------------------------------------------------
     \begin{minipage}[t]{0.22\textwidth}
-        \includegraphics[valign=t,width=\textwidth]{jack-bw.png} %<{type: "crop", description: "Profile picture", aspect: 0.75, id: "profilePicture"}>
+        \includegraphics[valign=t,width=\textwidth]{jack-bw.png} %<{type: "crop", description: "Profile picture", aspect: 0.75, id: "profilePicture", inputValue: "jack-bw.png"}>
     \end{minipage}\hspace{1em}\hfill
     \begin{minipage}[t]{0.7\textwidth}
         
         \vspace{2em}
         \flushright
         \begin{tabular}[t]{r|c}
-            {0043/800 010 100} %<{type: "phonenumber", description: "Phone number", id: "phoneNumber"}>
+            {0043/800 010 100} %<{type: "phonenumber", description: "Phone number", id: "phoneNumber", inputValue: "0043/800 010 100"}>
             & \faPhone  \\
-            {Address Line}& \faHome \\ %<{type: "text", description: "Your address (optional)", deleteOnEmpty: true, id: "address"}>
-            {Town, Country} %<{type: "text", description: "Your location (city, country)", id: "location"}>
+            {Address Line}& \faHome \\ %<{type: "text", description: "Your address (optional)", deleteOnEmpty: true, id: "address", inputValue: "Address Line"}>
+            {Town, Country} %<{type: "text", description: "Your location (city, country)", id: "location", inputValue: "Town, Country"}>
             & \faMapMarker \\
-            \texttt{jack@sparrow.com} & %<{type: "email", description: "Email address", id: "emailAddress"}>
+            \texttt{jack@sparrow.com} & %<{type: "email", description: "Email address", id: "emailAddress", inputValue: "jack@sparrow.com"}>
             \faAt \\ 
-            \texttt{www.sparrow.com}& \faLaptop %<{type: "text", description: "Website / homepage (optional)", deleteOnEmpty: true, id: "emailAddress"}>
+            \texttt{www.sparrow.com}& \faLaptop %<{type: "text", description: "Website / homepage (optional)", deleteOnEmpty: true, id: "website", inputValue: "www.sparrow.com"}>
             
         \end{tabular}
     \end{minipage}
@@ -62,8 +62,13 @@
 
 % -----------------------------------------------------------
 %<{type: "group", description: "About me"}
-    \section{About me} %<{description: "Custom title (optional)", type: "text"}>
-    %<{description: "Introduce yourself", "type": "textblock"}
+    \section{About me} %<{description: "Custom title", type: "text", inputValue: "About me"}>
+    %<{
+    %     description: "Introduce yourself",
+    %     "type": "textblock",
+    %     injectBrackets: true,
+    %     inputValue: "Donec et nisl id sapien blandit mattis. Aenean dictum odio sit amet risus. Morbi purus. Nulla a est sit amet purus venenatis iaculis. Vivamus viverra purus vel magna. Donec in justo sed odio malesuada dapibus. Nunc ultrices aliquam nunc. Vivamus facilisis pellentesque velit. Nulla nunc velit, vulputate dapibus, vulputate id, mattis ac, justo. Nam mattis elit dapibus purus. Quisque enim risus, congue non, elementum ut, mattis quis, sem. Quisque elit."
+    % }
     {Donec et nisl id sapien blandit mattis. Aenean dictum odio sit amet risus. Morbi purus. Nulla a est sit amet
     purus venenatis iaculis. Vivamus viverra purus vel magna. Donec in justo sed odio malesuada dapibus. Nunc
     ultrices aliquam nunc. Vivamus facilisis pellentesque velit. Nulla nunc velit, vulputate dapibus, vulputate id,
@@ -76,53 +81,83 @@
 
 %<{description: "Certificates, degrees (or other topics you choose)", type: "list", deleteOnEmpty: true}
     %<{description: "", type: "group"}
-        \subsection{CERTIFICATES} %<{description: "Section title", type: "text"}>
+        \subsection{CERTIFICATES} %<{description: "Section title", type: "text", inputValue: "CERTIFICATES"}>
         \begin{tabular}{r p{0.8\textwidth}}
         %<{description: "List your items", type: "list"}
             %<{"description": "", "type": "group"}
-                {2017--2019} %<{description: "Period (eg 2017--2019)", type: "text", maxLength: 10}>
-                & \textbf{Pirate Trainer} \newline %<{description: "Achievement/job title", type: "text"}>
-                { Lorem Ipsum Dolor Sit Amet. } \\ %<{description: "Achievement/job description", type: "text"}>
+                {2017--2019} %<{description: "Period", type: "text", maxLength: 10, inputValue: "2017--2019"}>
+                & \textbf{Pirate Trainer} \newline %<{description: "Achievement/job title", type: "text", inputValue: "Pirate Trainer"}>
+                {Lorem Ipsum Dolor Sit Amet.} \\ %<{description: "Achievement/job description", type: "text", escapeLatex: false, inputValue: "Lorem Ipsum Dolor Sit Amet."}>
             %>
-            2016--2017 & \textbf{Captain Training} \newline
-                { Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet. \newline Lorem Ipsum Dolor Sit Amet. }
+            %<{"description": "", "type": "group"}
+                {2016--2017} %<{description: "Period", type: "text", maxLength: 10, inputValue: "2016--2017"}>
+                & \textbf{Captain Training} \newline %<{description: "Achievement/job title", type: "text", inputValue: "Pirate Trainer"}>
+                {Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet. \newline Lorem Ipsum Dolor Sit Amet.} \\ %<{description: "Achievement/job description", type: "text", escapeLatex: false, inputValue: "Lorem Ipsum Dolor Sit Amet. Lorem Ipsum Dolor Sit Amet. \newline Lorem Ipsum Dolor Sit Amet."}>
+            %>
         %>
         \end{tabular}
         
         \cvrule{black}{2pt}
     
     %>
-    \subsection{DEGREES}
-    \begin{tabular}{r p{0.8\textwidth}}
-        \cvdegree{1710}{Captain}{Certified}{Tortuga Uni \color{cvcolour}}{}{disney.png} \\
-        \cvdegree{1715}{Bucaneering}{M.A.}{London \color{cvcolour}}{test}{medal.jpeg} \\
-        \cvdegree{1720}{Bucaneering}{B.A.}{London \color{cvcolour}}{}{medal.jpeg}
-    \end{tabular}
+    %<{description: "", type: "group"}
+        \subsection{DEGREES} %<{description: "Section title", type: "text", inputValue: "DEGREES"}>
+        \begin{tabular}{r p{0.8\textwidth}}
+        %<{description: "List your items", type: "list"}
+            %<{"description": "", "type": "group"}
+                {1710} %<{description: "Period", type: "text", maxLength: 10, inputValue: "1710"}>
+                & \textbf{Captain} \newline %<{description: "Achievement/job title", type: "text", inputValue: "Captain"}>
+                {Certified, Tortuga Uni} \\ %<{description: "Achievement/job description", type: "text", escapeLatex: false, inputValue: "Certified, Tortuga Uni"}>
+            %>
+            %<{"description": "", "type": "group"}
+                {1715} %<{description: "Period", type: "text", maxLength: 10, inputValue: "1715"}>
+                & \textbf{Bucaneering} \newline %<{description: "Achievement/job title", type: "text", inputValue: "Bucaneering"}>
+                {M.A., London} \\ %<{description: "Achievement/job description", type: "text", escapeLatex: false, inputValue: "M.A., London"}>
+            %>
+            %<{"description": "", "type": "group"}
+                {1720} %<{description: "Period", type: "text", maxLength: 10, inputValue: "1715"}>
+                & \textbf{Bucaneering} \newline %<{description: "Achievement/job title", type: "text", inputValue: "Bucaneering"}>
+                {B.A., London} \\ %<{description: "Achievement/job description", type: "text", escapeLatex: false, inputValue: "B.A., London"}>
+            %>
+        %>
+        \end{tabular}
+        
+        \cvrule{black}{2pt}
     
-    \cvrule{black}{2pt}
-
+    %>
 %>
 
 %<{description: "Work experience, internships, teaching experience (or other topics you choose)", "type": "list", deleteOnEmpty: true}
 %<{description: "", type: "group"}
-\subsection{WORK EXPERIENCE}%<{description: "Section title", type: "text"}>
+\subsection{WORK EXPERIENCE}%<{description: "Section title", type: "text", inputValue: "WORK EXPERIENCE"}>
 \begin{tabular}{r| p{0.8\textwidth}}
     %<{description: "Section items", type: "list"}
-    %<{"description": "", "type": "group"}
-        \cvevent{2018--2021}%<{description: "Period (e.g. 2011--2012)", type: "text", maxLength: 10}>
-        {Captain of the Black Pearl}%<{description: "Item title", type: "text"}>
-        {Lead}%<{description: "Role", type: "text"}>
-        {East Indies}%<{description: "Description", type: "text"}>
-        \\
-    %>
-        \cvevent{2019}{Freelance Pirate}{Bucaneering}{Tortuga} \\
-        \cvevent{2016--2017}{Captain of the Black Pearl}{Lead}{Tortuga}
+        %<{"description": "", "type": "group"}
+            \cvevent{2018--2021}%<{description: "Period", type: "text", maxLength: 10, inputValue: "2018--2021"}>
+            {Captain of the Black Pearl}%<{description: "Item title", type: "text", inputValue: "Captain of the Black Pearl"}>
+            {Lead}%<{description: "Role", type: "text", inputValue: "Lead"}>
+            {East Indies}%<{description: "Description", type: "text", inputValue: "East Indies"}>
+            \\
+        %>
+        %<{"description": "", "type": "group"}
+            \cvevent{2019}%<{description: "Period", type: "text", maxLength: 10, inputValue: "2019"}>
+            {Freelance Pirate}%<{description: "Item title", type: "text", inputValue: "Freelance Pirate"}>
+            {Bucaneering}%<{description: "Role", type: "text", inputValue: "Bucaneering"}>
+            {Tortuga}%<{description: "Description", type: "text", inputValue: "Tortuga"}>
+            \\
+        %>
+        %<{"description": "", "type": "group"}
+            \cvevent{2016--2017}%<{description: "Period", type: "text", maxLength: 10, inputValue: "2019"}>
+            {Captain of the Black Pearl}%<{description: "Item title", type: "text", inputValue: "Captain of the Black Pearl"}>
+            {Lead}%<{description: "Role", type: "text", inputValue: "Lead"}>
+            {Tortuga}%<{description: "Description", type: "text", inputValue: "Tortuga"}>
+            \\
+        %>
     %>
 \end{tabular}
 
 \cvrule{black}{2pt}
 %>
-
 
 \subsection{INTERNSHIPS}
 \begin{tabular}{r| p{0.8\textwidth}}
@@ -251,12 +286,19 @@ ab 2018 & Pirates' Club
 
 \subsection{LANGUAGES}
 %<{description: "Languages", type: "list", deleteOnEmpty: true}
-    %<{description: "Your language", type: "text"}
+    %<{description: "Your language", type: "text", inputValue: "English (mother tongue)."}
     {English (mother tongue).}
     
     %>
+    %<{description: "Your language", type: "text", inputValue: "French (parler)."}
+    {French (parler).}
     
-    French (parler).
+    %>
+    %<{description: "Your language", type: "text", inputValue: "Spanish A1."}
+    {Spanish A1.}
+    
+    %>
+
 
     Spanish A1.
 %>
